@@ -1,24 +1,170 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Sam Matthews — Practical systems for messy real-world problems</title>
-    <meta name="description" content="Sam Matthews is a UK-based Royal Holloway Computer Science student building practical software across web tools, automation, infrastructure, and data analysis." />
-    <meta name="author" content="Sam Matthews" />
-    <meta name="robots" content="index,follow" />
-    <link rel="canonical" href="https://sammatthews.co.uk/" />
-    <meta property="og:title" content="Sam Matthews — Practical systems for messy real-world problems" />
-    <meta property="og:description" content="A public interface for Sam Matthews: web tools, automation, infrastructure experiments, and practical software built with a systems mindset." />
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://sammatthews.co.uk/" />
-    <meta property="og:image" content="/og-image.svg" />
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="theme-color" content="#090a0a" />
-    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.jsx"></script>
-  </body>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Sam Matthews — software, security, automation</title>
+  <meta name="description" content="Sam Matthews is a Royal Holloway Computer Science / IT Security student building web tools, automation, local-first data utilities, and practical software systems.">
+  <meta name="author" content="Sam Matthews">
+  <meta name="robots" content="index,follow">
+  <meta property="og:title" content="Sam Matthews — software, security, automation">
+  <meta property="og:description" content="Public personal site for Sam Matthews: software, security, automation, web tools, and practical systems.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://avatars.githubusercontent.com/u/75203773?v=4">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="theme-color" content="#06070a">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%2306070a'/%3E%3Cpath d='M13 40V24h8l11 13 11-13h8v16h-7V29L33 42h-2L20 29v11z' fill='%23f2f5f8'/%3E%3C/svg%3E">
+  <style>
+    :root{
+      --bg:#06070a; --bg2:#0b0d12; --panel:#10131a; --panel2:#151924; --ink:#f3f6fb; --muted:#aab2c0; --dim:#697284;
+      --line:rgba(255,255,255,.12); --soft:rgba(255,255,255,.065); --acid:#d7ff47; --cyan:#54d6ff; --violet:#8c7aff; --red:#ff665c;
+      --shadow:0 40px 120px rgba(0,0,0,.55); --radius:24px; --mono:"SFMono-Regular","JetBrains Mono","IBM Plex Mono",Consolas,monospace;
+      --sans:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;
+    }
+    *{box-sizing:border-box} html{scroll-behavior:smooth;background:var(--bg)}
+    body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);overflow-x:hidden;font-feature-settings:"cv11","ss01"}
+    body:before{content:"";position:fixed;inset:0;z-index:-3;background:radial-gradient(circle at 18% 8%,rgba(84,214,255,.16),transparent 31rem),radial-gradient(circle at 88% 28%,rgba(215,255,71,.10),transparent 28rem),linear-gradient(180deg,#06070a 0%,#090b10 45%,#050609 100%)}
+    body:after{content:"";position:fixed;inset:0;z-index:-2;pointer-events:none;opacity:.35;background-image:linear-gradient(rgba(255,255,255,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.05) 1px,transparent 1px);background-size:48px 48px;mask-image:linear-gradient(to bottom,black,transparent 85%)}
+    a{color:inherit;text-decoration:none} button{font:inherit;color:inherit} a:focus-visible,button:focus-visible{outline:2px solid var(--acid);outline-offset:4px}
+    .noise{position:fixed;inset:0;z-index:-1;pointer-events:none;opacity:.07;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)'/%3E%3C/svg%3E")}
+    .wrap{width:min(1180px,calc(100% - 36px));margin:auto}.nav{position:sticky;top:14px;z-index:20;margin:14px auto 0;width:min(1180px,calc(100% - 28px));display:flex;align-items:center;justify-content:space-between;gap:12px;padding:10px;border:1px solid var(--line);border-radius:999px;background:rgba(7,8,12,.76);backdrop-filter:blur(18px);box-shadow:0 12px 60px rgba(0,0,0,.25)}
+    .brand{display:flex;align-items:center;gap:10px;padding:5px 10px 5px 5px;border-radius:999px}.mark{width:34px;height:34px;border-radius:50%;display:grid;place-items:center;background:var(--ink);color:#030405;font:800 12px var(--mono);letter-spacing:-.08em}.brand span:last-child{font-weight:700;letter-spacing:-.04em}.navlinks{display:flex;align-items:center;gap:4px}.navlinks a,.pill-btn{border:0;background:transparent;color:var(--muted);padding:9px 12px;border-radius:999px;font-size:13px;font-weight:650}.navlinks a:hover,.pill-btn:hover{color:var(--ink);background:rgba(255,255,255,.07)}.pill-btn{border:1px solid var(--line);color:var(--ink);cursor:pointer}
+    .hero{min-height:calc(100vh - 74px);display:grid;align-items:center;padding:72px 0 44px}.hero-grid{display:grid;grid-template-columns:1.08fr .92fr;gap:44px;align-items:center}.kicker{display:inline-flex;gap:9px;align-items:center;margin:0 0 18px;padding:7px 10px;border:1px solid var(--line);border-radius:999px;color:var(--muted);font:700 12px var(--mono);text-transform:uppercase;letter-spacing:.06em;background:rgba(255,255,255,.035)}.live-dot{width:8px;height:8px;border-radius:50%;background:var(--acid);box-shadow:0 0 24px var(--acid)}
+    h1{margin:0;font-size:clamp(58px,10vw,132px);line-height:.86;letter-spacing:-.092em;font-weight:850;max-width:900px}.headline-accent{display:block;color:transparent;-webkit-text-stroke:1.25px rgba(243,246,251,.72);text-shadow:0 0 48px rgba(84,214,255,.08)}
+    .lead{font-size:clamp(19px,2.15vw,28px);line-height:1.25;letter-spacing:-.035em;color:#d9dee8;max-width:760px;margin:28px 0 0}.truth{display:grid;grid-template-columns:88px 1fr;gap:18px;max-width:740px;margin:28px 0 0;padding:18px;border:1px solid var(--line);border-radius:20px;background:linear-gradient(135deg,rgba(215,255,71,.09),rgba(84,214,255,.045))}.truth b{font:800 12px var(--mono);color:var(--acid);text-transform:uppercase}.truth p{margin:0;color:var(--muted);line-height:1.55}.cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:30px}.btn{display:inline-flex;align-items:center;gap:10px;padding:13px 16px;border:1px solid var(--line);border-radius:14px;background:rgba(255,255,255,.055);font-weight:760;letter-spacing:-.02em}.btn.primary{background:var(--acid);color:#080a0d;border-color:transparent}.btn:hover{transform:translateY(-2px);box-shadow:0 18px 42px rgba(0,0,0,.28)}
+    .portrait-card{position:relative;border:1px solid var(--line);border-radius:32px;padding:18px;background:linear-gradient(180deg,rgba(255,255,255,.08),rgba(255,255,255,.025));box-shadow:var(--shadow);overflow:hidden}.portrait-card:before{content:"";position:absolute;inset:-30%;background:conic-gradient(from 160deg,transparent,var(--cyan),transparent,var(--acid),transparent);opacity:.13;animation:spin 12s linear infinite}.screen{position:relative;border:1px solid var(--line);border-radius:24px;background:#080a0f;overflow:hidden}.screen-top{display:flex;align-items:center;justify-content:space-between;padding:12px 14px;border-bottom:1px solid var(--line);font:700 12px var(--mono);color:var(--dim)}.lights{display:flex;gap:6px}.lights i{width:9px;height:9px;border-radius:50%;background:var(--dim)}.lights i:nth-child(1){background:var(--red)}.lights i:nth-child(2){background:#ffbf4d}.lights i:nth-child(3){background:var(--acid)}.avatar-row{display:grid;grid-template-columns:96px 1fr;gap:16px;padding:22px}.avatar{width:96px;height:96px;border-radius:22px;border:1px solid var(--line);object-fit:cover;filter:grayscale(.05) contrast(1.05)}.id h2{margin:0;font-size:28px;letter-spacing:-.05em}.id p{margin:8px 0 0;color:var(--muted);line-height:1.45}.console{padding:0 22px 22px;display:grid;gap:9px;font:13px var(--mono);color:var(--muted)}.console div{display:flex;justify-content:space-between;gap:10px;padding:10px 0;border-top:1px solid var(--soft)}.console strong{color:var(--ink);font-weight:600;text-align:right}.radar{height:260px;margin:0 22px 22px;border:1px solid var(--soft);border-radius:20px;position:relative;overflow:hidden;background:radial-gradient(circle at center,rgba(84,214,255,.12),transparent 45%),repeating-radial-gradient(circle at center,rgba(255,255,255,.10) 0 1px,transparent 1px 46px)}.radar:before{content:"";position:absolute;inset:50% auto auto 50%;width:50%;height:2px;background:linear-gradient(90deg,var(--acid),transparent);transform-origin:left center;animation:sweep 5s linear infinite}.node{position:absolute;width:9px;height:9px;border-radius:50%;background:var(--ink);box-shadow:0 0 20px currentColor}.node:nth-child(1){left:28%;top:36%;color:var(--cyan)}.node:nth-child(2){left:67%;top:30%;color:var(--acid)}.node:nth-child(3){left:54%;top:68%;color:var(--violet)}.node:nth-child(4){left:19%;top:73%;color:var(--red)}
+    section{padding:68px 0;scroll-margin-top:96px}.section-head{display:grid;grid-template-columns:.55fr 1fr;gap:34px;align-items:end;margin-bottom:24px}.label{font:800 12px var(--mono);color:var(--acid);letter-spacing:.08em;text-transform:uppercase}.section-head h2{margin:0;font-size:clamp(38px,6vw,76px);line-height:.92;letter-spacing:-.075em}.section-head p{margin:0;color:var(--muted);font-size:18px;line-height:1.55;max-width:650px}.bento{display:grid;grid-template-columns:1.2fr .8fr .8fr;gap:14px}.card{border:1px solid var(--line);border-radius:var(--radius);background:linear-gradient(180deg,rgba(255,255,255,.075),rgba(255,255,255,.028));padding:22px;min-height:210px;position:relative;overflow:hidden}.card h3{margin:0 0 12px;font-size:25px;letter-spacing:-.045em}.card p{margin:0;color:var(--muted);line-height:1.55}.card.big{grid-row:span 2;min-height:438px}.card.wide{grid-column:span 2}.card .num{position:absolute;right:18px;top:16px;font:800 12px var(--mono);color:var(--dim)}.tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}.tag{padding:6px 8px;border:1px solid var(--line);border-radius:999px;color:#d9dfeb;background:rgba(255,255,255,.045);font:700 11px var(--mono)}.signal-list{position:absolute;left:22px;right:22px;bottom:20px;display:grid;gap:8px}.signal-list div{display:flex;justify-content:space-between;gap:12px;padding:10px 0;border-top:1px solid var(--soft);font:700 12px var(--mono);color:var(--muted)}.signal-list strong{color:var(--ink);font-weight:700;text-align:right}
+    .projects{display:grid;gap:14px}.project{display:grid;grid-template-columns:190px 1fr 260px;gap:22px;align-items:stretch;border:1px solid var(--line);border-radius:28px;background:rgba(255,255,255,.045);overflow:hidden}.project-meta{padding:22px;border-right:1px solid var(--line);display:flex;flex-direction:column;justify-content:space-between;color:var(--muted);font:700 12px var(--mono);text-transform:uppercase}.project-main{padding:24px 0}.project-main h3{margin:0 0 10px;font-size:34px;letter-spacing:-.06em}.project-main p{margin:0;color:var(--muted);line-height:1.55}.why{margin-top:16px!important;color:var(--ink)!important}.project-side{border-left:1px solid var(--line);padding:22px;display:grid;align-content:center;gap:12px}.mini-link{display:flex;justify-content:space-between;gap:10px;padding:11px 12px;border:1px solid var(--line);border-radius:14px;color:var(--ink);font:750 13px var(--mono);background:rgba(255,255,255,.04)}.mini-link:hover{border-color:rgba(215,255,71,.55);background:rgba(215,255,71,.08)}
+    .proof{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}.proof-item{padding:20px;border:1px solid var(--line);border-radius:22px;background:rgba(255,255,255,.04)}.proof-item span{display:block;color:var(--acid);font:800 11px var(--mono);text-transform:uppercase;margin-bottom:12px}.proof-item strong{font-size:20px;letter-spacing:-.04em}.proof-item p{color:var(--muted);line-height:1.45;margin:10px 0 0;font-size:14px}.split{display:grid;grid-template-columns:.9fr 1.1fr;gap:14px}.manifesto{border:1px solid var(--line);border-radius:32px;padding:34px;background:linear-gradient(135deg,rgba(215,255,71,.11),rgba(84,214,255,.05),rgba(255,255,255,.025))}.manifesto h2{font-size:clamp(42px,6vw,84px);line-height:.88;letter-spacing:-.08em;margin:0 0 24px}.manifesto p{font-size:19px;line-height:1.5;color:#dfe4ed}.principles{display:grid;gap:14px}.principle{padding:22px;border:1px solid var(--line);border-radius:24px;background:rgba(255,255,255,.04)}.principle b{display:block;margin-bottom:8px}.principle span{color:var(--muted);line-height:1.5}.contact{padding:70px 0 88px}.contact-box{border:1px solid var(--line);border-radius:36px;padding:clamp(28px,6vw,60px);background:#f3f6fb;color:#05070a;display:grid;grid-template-columns:1fr auto;gap:24px;align-items:end}.contact-box h2{font-size:clamp(46px,7vw,96px);line-height:.9;letter-spacing:-.085em;margin:0}.contact-box p{color:#394252;font-size:19px;line-height:1.45;max-width:650px}.contact-links{display:grid;gap:10px;min-width:240px}.contact-links a{padding:13px 14px;border:1px solid rgba(0,0,0,.14);border-radius:14px;font-weight:800;display:flex;justify-content:space-between}.footer{border-top:1px solid var(--line);padding:22px 0;color:var(--dim);font:700 12px var(--mono);display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+    .reveal{opacity:0;transform:translateY(18px);transition:opacity .6s ease,transform .6s ease}.reveal.in{opacity:1;transform:none}@keyframes spin{to{transform:rotate(1turn)}}@keyframes sweep{to{transform:rotate(1turn)}}
+    @media(max-width:980px){.hero-grid,.section-head,.split,.contact-box{grid-template-columns:1fr}.bento{grid-template-columns:1fr 1fr}.card.big,.card.wide{grid-column:auto;grid-row:auto}.project{grid-template-columns:1fr}.project-meta,.project-side{border:0;border-top:1px solid var(--line)}.project-meta{display:block}.proof{grid-template-columns:1fr 1fr}.navlinks a{display:none}}
+    @media(max-width:620px){.wrap{width:min(100% - 24px,1180px)}.nav{top:8px;width:calc(100% - 16px);border-radius:18px}.brand span:last-child{display:none}.hero{padding-top:48px}.truth{grid-template-columns:1fr}.portrait-card{border-radius:22px;padding:10px}.avatar-row{grid-template-columns:72px 1fr;padding:16px}.avatar{width:72px;height:72px;border-radius:16px}.radar{height:180px;margin:0 14px 14px}.bento,.proof{grid-template-columns:1fr}.section-head h2,.manifesto h2{font-size:42px}.project-main{padding:22px}.contact-links{min-width:0}.cta .btn{width:100%;justify-content:space-between}}
+    @media(prefers-reduced-motion:reduce){*,*:before,*:after{animation:none!important;transition:none!important;scroll-behavior:auto!important}.reveal{opacity:1;transform:none}}
+  </style>
+</head>
+<body>
+  <div class="noise"></div>
+  <nav class="nav" aria-label="Primary navigation">
+    <a class="brand" href="#top"><span class="mark">SM</span><span>Sam Matthews</span></a>
+    <div class="navlinks">
+      <a href="#work">Work</a><a href="#projects">Projects</a><a href="#proof">Proof</a><a href="#principles">Principles</a>
+      <a class="pill-btn" href="https://github.com/TheLidlMan" target="_blank" rel="noopener">GitHub</a>
+    </div>
+  </nav>
+
+  <main id="top">
+    <header class="hero wrap">
+      <div class="hero-grid">
+        <div class="hero-copy reveal">
+          <p class="kicker"><span class="live-dot"></span> Royal Holloway · Software · Security · Automation</p>
+          <h1>Useful software. <span class="headline-accent">Less theatre.</span></h1>
+          <p class="lead">I’m Sam Matthews: a UK-based Computer Science / IT Security student building web tools, automation, local-first data utilities, and the unglamorous systems that make things actually work.</p>
+          <div class="truth">
+            <b>Position</b>
+            <p>I’m interested in the gap between polished software and messy real life: broken workflows, private data, infrastructure, small products, and tools people can actually understand.</p>
+          </div>
+          <div class="cta">
+            <a class="btn primary" href="#projects">See the work <span>↓</span></a>
+            <a class="btn" href="https://github.com/TheLidlMan" target="_blank" rel="noopener">GitHub ↗</a>
+            <a class="btn" href="https://uk.linkedin.com/in/sam--matthews" target="_blank" rel="noopener">LinkedIn ↗</a>
+          </div>
+        </div>
+        <aside class="portrait-card reveal" aria-label="Sam Matthews profile snapshot">
+          <div class="screen">
+            <div class="screen-top"><span>public-profile.sammatthews</span><span class="lights"><i></i><i></i><i></i></span></div>
+            <div class="avatar-row">
+              <img class="avatar" src="https://avatars.githubusercontent.com/u/75203773?v=4" alt="Sam Matthews GitHub avatar">
+              <div class="id"><h2>Sam Matthews</h2><p>Builder of practical web tools, automation, infrastructure experiments, and privacy-aware software.</p></div>
+            </div>
+            <div class="console">
+              <div><span>status</span><strong>building in public</strong></div>
+              <div><span>education</span><strong>Royal Holloway · IT Security</strong></div>
+              <div><span>github</span><strong>@TheLidlMan</strong></div>
+              <div><span>current orbit</span><strong>AI agents · web · infra</strong></div>
+            </div>
+            <div class="radar" aria-hidden="true"><i class="node"></i><i class="node"></i><i class="node"></i><i class="node"></i></div>
+          </div>
+        </aside>
+      </div>
+    </header>
+
+    <section id="work" class="wrap reveal">
+      <div class="section-head">
+        <span class="label">01 / what I do</span>
+        <div><h2>Builder, not brochure-person.</h2><p>A personal site should show the pattern of work. This one is about useful systems, not a fake founder myth assembled from buzzwords and a sad gradient.</p></div>
+      </div>
+      <div class="bento">
+        <article class="card big"><span class="num">A</span><h3>Automation for boring work</h3><p>AI agents, scripts, glue code, and workflows that make tedious processes vanish or at least stop shouting.</p><div class="tags"><span class="tag">AI agents</span><span class="tag">workflow design</span><span class="tag">tooling</span></div><div class="signal-list"><div><span>target</span><strong>less manual admin</strong></div><div><span>method</span><strong>small reliable tools</strong></div><div><span>taste</span><strong>inspectable over magic</strong></div></div></article>
+        <article class="card"><span class="num">B</span><h3>Web tools with a job</h3><p>Client-side apps, interfaces, dashboards, and websites that exist because someone needs to do something.</p><div class="tags"><span class="tag">JavaScript</span><span class="tag">React</span><span class="tag">UX</span></div></article>
+        <article class="card"><span class="num">C</span><h3>Security-shaped thinking</h3><p>Studying Computer Science / IT Security at Royal Holloway. Failure modes, incentives, privacy, trust boundaries.</p><div class="tags"><span class="tag">security</span><span class="tag">systems</span></div></article>
+        <article class="card wide"><span class="num">D</span><h3>Infrastructure and local-first data</h3><p>Homelabs, DNS, deployments, self-hosted services, data exports, and software that lets people inspect their own information before handing it to a platform.</p><div class="tags"><span class="tag">Linux</span><span class="tag">Cloudflare</span><span class="tag">local-first</span><span class="tag">privacy-aware</span></div></article>
+      </div>
+    </section>
+
+    <section id="projects" class="wrap reveal">
+      <div class="section-head">
+        <span class="label">02 / selected work</span>
+        <div><h2>Public evidence.</h2><p>Not everything belongs on a public website. These are the pieces that are safe, specific, and useful enough to show.</p></div>
+      </div>
+      <div class="projects">
+        <article class="project">
+          <div class="project-meta"><span>shipped</span><span>JavaScript</span></div>
+          <div class="project-main"><h3>Instagram Analyser</h3><p>A client-side web application for analysing Instagram direct-message export data.</p><p class="why">Why it matters: your archive should become understandable without becoming someone else’s database.</p><div class="tags"><span class="tag">client-side</span><span class="tag">data analysis</span><span class="tag">privacy-aware</span></div></div>
+          <div class="project-side"><a class="mini-link" href="https://analysis.thelidlman.com" target="_blank" rel="noopener">Live site <span>↗</span></a><a class="mini-link" href="https://github.com/TheLidlMan/Instagram-Analyser" target="_blank" rel="noopener">Repository <span>↗</span></a></div>
+        </article>
+        <article class="project">
+          <div class="project-meta"><span>maintained</span><span>2019—now</span></div>
+          <div class="project-main"><h3>Pat Mooney Counselling website</h3><p>Long-running client website design, development, maintenance, uptime, updates, and troubleshooting.</p><p class="why">Why it matters: client work is not just design. It is translating needs, keeping things reliable, and fixing the boring parts before users notice.</p><div class="tags"><span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">JavaScript</span><span class="tag">client work</span></div></div>
+          <div class="project-side"><span class="mini-link">Public client work <span>✓</span></span></div>
+        </article>
+        <article class="project">
+          <div class="project-meta"><span>active orbit</span><span>AI</span></div>
+          <div class="project-main"><h3>Rlly / AI product work</h3><p>Public-facing direction around AI-focused software, automation, and product-building.</p><p class="why">Kept deliberately modest here. A public site should explain the direction without leaking private machinery or pretending everything is a launch announcement.</p><div class="tags"><span class="tag">AI</span><span class="tag">automation</span><span class="tag">product</span></div></div>
+          <div class="project-side"><a class="mini-link" href="https://github.com/Rlly-AI" target="_blank" rel="noopener">GitHub org <span>↗</span></a></div>
+        </article>
+        <article class="project">
+          <div class="project-meta"><span>experiments</span><span>Dart · TS · Python</span></div>
+          <div class="project-main"><h3>Plezy, Itinex, Lecture tools, and the public workshop</h3><p>A trail of current and older experiments across Flutter, TypeScript, Python, docs, infrastructure, media tooling, and university work.</p><p class="why">The through-line is simple: build small systems, learn in public, abandon what deserves abandoning, keep what works.</p><div class="tags"><span class="tag">Flutter</span><span class="tag">TypeScript</span><span class="tag">Python</span><span class="tag">experiments</span></div></div>
+          <div class="project-side"><a class="mini-link" href="https://github.com/TheLidlMan" target="_blank" rel="noopener">GitHub profile <span>↗</span></a></div>
+        </article>
+      </div>
+    </section>
+
+    <section id="proof" class="wrap reveal">
+      <div class="section-head">
+        <span class="label">03 / public proof</span>
+        <div><h2>Specific beats impressive-sounding.</h2><p>Everything here is intentionally public-safe and grounded in visible sources: LinkedIn, GitHub, and current project surfaces.</p></div>
+      </div>
+      <div class="proof">
+        <div class="proof-item"><span>Education</span><strong>Royal Holloway</strong><p>Computer Science / IT Security, 2023–2027 public LinkedIn window.</p></div>
+        <div class="proof-item"><span>GitHub</span><strong>@TheLidlMan</strong><p>Public repos across JavaScript, TypeScript, Python, Dart, docs, and experiments.</p></div>
+        <div class="proof-item"><span>Client work</span><strong>Since 2019</strong><p>Web Developer and Manager for Pat Mooney Counselling.</p></div>
+        <div class="proof-item"><span>Direction</span><strong>AI + systems</strong><p>Automation, web tools, infrastructure, local-first utilities, and security-shaped thinking.</p></div>
+      </div>
+    </section>
+
+    <section id="principles" class="wrap split reveal">
+      <div class="manifesto"><span class="label">04 / operating principles</span><h2>The website is not the work. It is the doorway.</h2><p>The point is to make the right people understand the shape of the work quickly: practical, slightly obsessive, allergic to fake polish, and interested in systems that survive reality.</p></div>
+      <div class="principles">
+        <div class="principle"><b>Make it inspectable.</b><span>If a system hides everything interesting, it is probably hiding something broken.</span></div>
+        <div class="principle"><b>Useful over theatrical.</b><span>Good software changes what someone can do. It does not just wear a shiny landing page hat.</span></div>
+        <div class="principle"><b>Privacy is a design constraint.</b><span>Especially with personal data exports, automation, and AI-assisted workflows.</span></div>
+        <div class="principle"><b>Keep the weirdness controlled.</b><span>Memorable is good. Tacky is a tax. The difference matters.</span></div>
+      </div>
+    </section>
+
+    <section class="contact wrap reveal">
+      <div class="contact-box">
+        <div><span class="label" style="color:#526000">05 / contact</span><h2>Send the annoying problem.</h2><p>If it involves web tools, automation, infrastructure, AI workflows, data exports, or a small system nobody else wants to untangle, that is probably the right shape.</p></div>
+        <div class="contact-links"><a href="https://github.com/TheLidlMan" target="_blank" rel="noopener">GitHub <span>↗</span></a><a href="https://uk.linkedin.com/in/sam--matthews" target="_blank" rel="noopener">LinkedIn <span>↗</span></a><a href="https://analysis.thelidlman.com" target="_blank" rel="noopener">Instagram Analyser <span>↗</span></a></div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer wrap"><span>Sam Matthews · public personal site</span><span>No fake metrics. No old blog cosplay. Built to be static-host boring.</span></footer>
+  <script>
+    const observer = new IntersectionObserver(entries => entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('in') }), { threshold: .12 });
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+  </script>
+</body>
 </html>
