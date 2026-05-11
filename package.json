@@ -1,0 +1,21 @@
+{
+  "name": "sam-personal-site",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Public personal website for Sam Matthews.",
+  "scripts": {
+    "dev": "vite --host 0.0.0.0",
+    "build": "vite build",
+    "preview": "vite preview --host 0.0.0.0",
+    "lint": "npm run build"
+  },
+  "dependencies": {
+    "@vitejs/plugin-react": "latest",
+    "vite": "latest",
+    "react": "latest",
+    "react-dom": "latest",
+    "lucide-react": "latest"
+  },
+  "devDependencies": {}
+}
