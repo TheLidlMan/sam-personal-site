@@ -1,25 +1,166 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Sam Matthews — Practical systems for messy real-world problems</title>
-    <meta name="description" content="Sam Matthews is a UK-based Royal Holloway Computer Science student building practical software across web tools, automation, infrastructure, and data analysis." />
-    <meta name="author" content="Sam Matthews" />
-    <meta name="robots" content="index,follow" />
-    <link rel="canonical" href="https://sammatthews.co.uk/" />
-    <meta property="og:title" content="Sam Matthews — Practical systems for messy real-world problems" />
-    <meta property="og:description" content="A public interface for Sam Matthews: web tools, automation, infrastructure experiments, and practical software built with a systems mindset." />
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://sammatthews.co.uk/" />
-    <meta property="og:image" content="./og-image.svg" />
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="theme-color" content="#090a0a" />
-    <link rel="icon" href="./favicon.svg" type="image/svg+xml" />
-    <script type="module" crossorigin src="./assets/index-WMWXfB5E.js"></script>
-    <link rel="stylesheet" crossorigin href="./assets/index-D68rO6lv.css">
-  </head>
-  <body>
-    <div id="root"></div>
-  </body>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Sam Matthews — builder, student, engineer</title>
+  <meta name="description" content="Sam Matthews is a Computer Science / IT Security student, founding full-stack engineer, and builder of web tools, automation, QA workflows, and practical software systems.">
+  <meta name="author" content="Sam Matthews">
+  <meta name="robots" content="index,follow">
+  <meta property="og:title" content="Sam Matthews — builder, student, engineer">
+  <meta property="og:description" content="Sam Matthews: work, projects, experience, software, security, and practical systems.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="/assets/sam-matthews.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="theme-color" content="#06070a">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%2306070a'/%3E%3Cpath d='M13 40V24h8l11 13 11-13h8v16h-7V29L33 42h-2L20 29v11z' fill='%23f2f5f8'/%3E%3C/svg%3E">
+  <style>
+    :root{
+      --bg:#06070a; --bg2:#0b0d12; --panel:#10131a; --panel2:#151924; --ink:#f3f6fb; --muted:#aab2c0; --dim:#697284;
+      --line:rgba(255,255,255,.12); --soft:rgba(255,255,255,.065); --acid:#d7ff47; --cyan:#54d6ff; --violet:#8c7aff; --red:#ff665c;
+      --shadow:0 40px 120px rgba(0,0,0,.55); --radius:24px; --mono:"SFMono-Regular","JetBrains Mono","IBM Plex Mono",Consolas,monospace;
+      --sans:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;
+    }
+    *{box-sizing:border-box} html{scroll-behavior:smooth;background:var(--bg)}
+    body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);overflow-x:hidden;font-feature-settings:"cv11","ss01"}
+    body:before{content:"";position:fixed;inset:0;z-index:-3;background:radial-gradient(circle at 18% 8%,rgba(84,214,255,.16),transparent 31rem),radial-gradient(circle at 88% 28%,rgba(215,255,71,.10),transparent 28rem),linear-gradient(180deg,#06070a 0%,#090b10 45%,#050609 100%)}
+    body:after{content:"";position:fixed;inset:0;z-index:-2;pointer-events:none;opacity:.35;background-image:linear-gradient(rgba(255,255,255,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.05) 1px,transparent 1px);background-size:48px 48px;mask-image:linear-gradient(to bottom,black,transparent 85%)}
+    a{color:inherit;text-decoration:none} button{font:inherit;color:inherit} a:focus-visible,button:focus-visible{outline:2px solid var(--acid);outline-offset:4px}
+    .noise{position:fixed;inset:0;z-index:-1;pointer-events:none;opacity:.07;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)'/%3E%3C/svg%3E")}
+    .wrap{width:min(1180px,calc(100% - 36px));margin:auto}.nav{position:relative;z-index:20;margin:0 auto;width:min(1180px,calc(100% - 36px));display:flex;align-items:center;justify-content:space-between;gap:12px;padding:28px 0 10px;background:transparent}
+    .brand{display:flex;align-items:baseline;gap:12px;padding:0}.wordmark{font:850 15px var(--sans);letter-spacing:-.035em;color:var(--ink)}.brand-kicker{font:800 10px var(--mono);text-transform:uppercase;letter-spacing:.11em;color:var(--dim)}.navlinks{display:flex;align-items:center;gap:8px}.navlinks a,.pill-btn{border:0;background:transparent;color:var(--muted);padding:8px 0 8px 16px;border-radius:0;font-size:13px;font-weight:650}.navlinks a:hover,.pill-btn:hover{color:var(--ink);background:transparent}.pill-btn{color:var(--ink);cursor:pointer}
+    .hero{min-height:78vh;display:grid;align-items:center;padding:76px 0 86px}.hero-grid{display:block}.hero-copy{max-width:1180px}.prehead{margin:0 0 22px;color:var(--dim);font:800 12px var(--mono);text-transform:uppercase;letter-spacing:.08em}
+    h1{margin:0;font-size:clamp(64px,9.5vw,136px);line-height:1.03;letter-spacing:-.018em;font-weight:850;max-width:1180px;word-spacing:.035em}.name-line{display:block;white-space:nowrap}.headline-accent{display:block;white-space:nowrap;color:transparent;-webkit-text-stroke:1.45px #72f6ff;letter-spacing:-.006em;text-shadow:0 0 32px rgba(114,246,255,.18),0 0 70px rgba(255,83,191,.10)}
+    .lead{font-size:clamp(20px,2.15vw,30px);line-height:1.34;letter-spacing:-.018em;color:#d9dee8;max-width:900px;margin:30px 0 0}.cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:34px}.btn{display:inline-flex;align-items:center;gap:10px;padding:13px 16px;border:1px solid var(--line);border-radius:14px;background:rgba(255,255,255,.04);font-weight:760;letter-spacing:-.02em}.btn.primary{background:rgba(84,214,255,.10);color:#dff8ff;border-color:rgba(84,214,255,.46);box-shadow:0 0 34px rgba(84,214,255,.08)}.btn:hover{transform:translateY(-2px);border-color:rgba(255,255,255,.28);box-shadow:0 18px 42px rgba(0,0,0,.28)}
+    section{padding:68px 0;scroll-margin-top:96px}.section-head{display:grid;grid-template-columns:.55fr 1fr;gap:34px;align-items:end;margin-bottom:24px}.label{font:800 12px var(--mono);color:var(--acid);letter-spacing:.08em;text-transform:uppercase}.section-head h2{margin:0;font-size:clamp(38px,6vw,76px);line-height:.92;letter-spacing:-.075em}.section-head p{margin:0;color:var(--muted);font-size:18px;line-height:1.55;max-width:650px}.bento{display:grid;grid-template-columns:1.2fr .8fr .8fr;gap:14px}.card{border:1px solid var(--line);border-radius:var(--radius);background:linear-gradient(180deg,rgba(255,255,255,.075),rgba(255,255,255,.028));padding:22px;min-height:210px;position:relative;overflow:hidden}.card h3{margin:0 0 12px;font-size:25px;letter-spacing:-.045em}.card p{margin:0;color:var(--muted);line-height:1.55}.card.big{grid-row:span 2;min-height:438px}.card.wide{grid-column:span 2}.card .num{position:absolute;right:18px;top:16px;font:800 12px var(--mono);color:var(--dim)}.tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}.tag{padding:6px 8px;border:1px solid var(--line);border-radius:999px;color:#d9dfeb;background:rgba(255,255,255,.045);font:700 11px var(--mono)}.signal-list{position:absolute;left:22px;right:22px;bottom:20px;display:grid;gap:8px}.signal-list div{display:flex;justify-content:space-between;gap:12px;padding:10px 0;border-top:1px solid var(--soft);font:700 12px var(--mono);color:var(--muted)}.signal-list strong{color:var(--ink);font-weight:700;text-align:right}
+    .capabilities{border-top:1px solid var(--line)}.cap-row{display:grid;grid-template-columns:220px 1fr 240px;gap:24px;padding:24px 0;border-bottom:1px solid var(--line);align-items:start}.cap-row h3{margin:0;font-size:28px;letter-spacing:-.045em}.cap-row p{margin:0;color:var(--muted);line-height:1.55}.cap-row .tags{margin-top:0;justify-content:flex-end}.ledger{border-top:1px solid var(--line)}.ledger-row{display:grid;grid-template-columns:170px 1fr 220px;gap:24px;padding:22px 0;border-bottom:1px solid var(--line);align-items:start}.ledger-mark{display:flex;align-items:center;gap:12px;font:900 22px var(--sans);letter-spacing:-.045em;color:var(--ink)}.company-logo{width:42px;height:42px;border-radius:10px;object-fit:contain;background:#f3f6fb;padding:6px;border:1px solid var(--soft)}.company-logo.wordmark{width:64px;height:42px;padding:4px}.ledger-main h3{margin:0 0 6px;font-size:28px;letter-spacing:-.05em}.ledger-role{color:#dfe5ee;font-weight:760;margin-bottom:8px}.ledger-main p{margin:0;color:var(--muted);line-height:1.5}.ledger-date{text-align:right;color:var(--muted);font:800 12px var(--mono);text-transform:uppercase;letter-spacing:.045em}.ledger-row.featured .ledger-mark{color:var(--acid)}.ledger-row.event .ledger-mark{color:var(--acid)}
+    .projects{display:grid;border-top:1px solid var(--line)}.project{display:grid;grid-template-columns:190px 1fr 260px;gap:22px;align-items:stretch;border-bottom:1px solid var(--line);background:transparent;overflow:visible}.project-meta{padding:24px 0;display:flex;flex-direction:column;justify-content:space-between;color:var(--muted);font:700 12px var(--mono);text-transform:uppercase}.project-main{padding:24px 0}.project-main h3{margin:0 0 10px;font-size:34px;letter-spacing:-.045em}.project-main p{margin:0;color:var(--muted);line-height:1.55}.why{margin-top:16px!important;color:var(--ink)!important}.project-side{padding:24px 0;display:grid;align-content:center;gap:12px}.mini-link{display:flex;justify-content:space-between;gap:10px;padding:0 0 10px;border:0;border-bottom:1px solid var(--soft);border-radius:0;color:var(--ink);font:750 13px var(--mono);background:transparent}.mini-link:hover{color:var(--acid);border-color:rgba(215,255,71,.55);background:transparent}
+    .proof{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));border-top:1px solid var(--line);gap:0}.proof-item{padding:20px 18px 20px 0;border-bottom:1px solid var(--line);background:transparent}.proof-item span{display:block;color:var(--acid);font:800 11px var(--mono);text-transform:uppercase;margin-bottom:12px}.proof-item strong{font-size:20px;letter-spacing:-.035em}.proof-item p{color:var(--muted);line-height:1.45;margin:10px 0 0;font-size:14px}.split{display:grid;grid-template-columns:.9fr 1.1fr;gap:14px}.manifesto{border-top:1px solid var(--line);border-bottom:1px solid var(--line);border-radius:0;padding:34px 0;background:transparent}.manifesto h2{font-size:clamp(42px,6vw,84px);line-height:.88;letter-spacing:-.08em;margin:0 0 24px}.manifesto p{font-size:19px;line-height:1.5;color:#dfe4ed}.principles{display:grid;gap:14px}.principle{padding:22px 0;border-bottom:1px solid var(--line);border-radius:0;background:transparent}.principle b{display:block;margin-bottom:8px}.principle span{color:var(--muted);line-height:1.5}.contact{padding:70px 0 88px}.contact-box{border:1px solid var(--line);border-radius:36px;padding:clamp(28px,6vw,60px);background:#f3f6fb;color:#05070a;display:grid;grid-template-columns:1fr auto;gap:24px;align-items:end}.contact-box h2{font-size:clamp(46px,7vw,96px);line-height:.9;letter-spacing:-.085em;margin:0}.contact-box p{color:#394252;font-size:19px;line-height:1.45;max-width:650px}.contact-links{display:grid;gap:10px;min-width:240px}.contact-links a{padding:13px 14px;border:1px solid rgba(0,0,0,.14);border-radius:14px;font-weight:800;display:flex;justify-content:space-between}.footer{border-top:1px solid var(--line);padding:22px 0;color:#8b95a7;font:700 12px var(--mono);display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+    .reveal{opacity:0;transform:translateY(18px);transition:opacity .6s ease,transform .6s ease}.reveal.in{opacity:1;transform:none}
+    @media(max-width:980px){.section-head,.split,.contact-box{grid-template-columns:1fr}.bento{grid-template-columns:1fr 1fr}.card.big,.card.wide{grid-column:auto;grid-row:auto}.project{grid-template-columns:1fr}.project-meta,.project-side{border:0}.project-meta{display:block}.cap-row,.ledger-row{grid-template-columns:1fr}.ledger-date{text-align:left}.proof{grid-template-columns:1fr 1fr}.navlinks a{display:none}}
+    @media(max-width:620px){.wrap{width:min(100% - 24px,1180px)}.nav{width:calc(100% - 24px);padding-top:18px}.brand-kicker{display:none}.hero{padding-top:52px}.cap-row,.ledger-row{gap:10px}.cap-row .tags{justify-content:flex-start}.bento,.proof{grid-template-columns:1fr}.section-head h2,.manifesto h2{font-size:42px}.project-main{padding:22px}.contact-links{min-width:0}.cta .btn{width:100%;justify-content:space-between}h1{font-size:clamp(54px,16vw,88px);line-height:1.02;letter-spacing:-.01em}.name-line,.headline-accent{white-space:normal}.headline-accent{-webkit-text-stroke:1.05px #72f6ff}}
+    @media(prefers-reduced-motion:reduce){*,*:before,*:after{animation:none!important;transition:none!important;scroll-behavior:auto!important}.reveal{opacity:1;transform:none}}
+  </style>
+</head>
+<body>
+  <div class="noise"></div>
+  <nav class="nav" aria-label="Primary navigation">
+    <a class="brand" href="#top"><span class="wordmark">TheLidlMan</span><span class="brand-kicker">source available</span></a>
+    <div class="navlinks">
+      <a href="#work">Work</a><a href="#experience">Experience</a><a href="#projects">Projects</a><a href="#proof">Proof</a>
+    </div>
+  </nav>
+
+  <main id="top">
+    <header class="hero wrap">
+      <div class="hero-grid">
+        <div class="hero-copy reveal">
+          <p class="prehead">Startup code / university labs / useful chaos</p>
+          <h1><span class="name-line">Sam Matthews.</span><span class="headline-accent">Builds cool stuff.</span></h1>
+          <p class="lead">Royal Holloway IT Security student and founding full-stack engineer at Rlly. Shipping web tools, QA workflows, local-first utilities, automation, and small systems that make messy real life less annoying.</p>
+          <div class="cta">
+            <a class="btn primary" href="#experience">See the receipts <span>↓</span></a>
+            <a class="btn" href="https://github.com/TheLidlMan" target="_blank" rel="noopener">GitHub ↗</a>
+            <a class="btn" href="https://www.linkedin.com/in/sammatthews04/" target="_blank" rel="noopener">LinkedIn ↗</a>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <section id="work" class="wrap reveal">
+      <div class="section-head">
+        <span class="label">01 / what I do</span>
+        <div><h2>Things I seem to keep doing.</h2><p>I build websites, ship small tools, test software properly, join hackathons, and keep ending up near security problems. Not a brand manifesto. Just the pattern.</p></div>
+      </div>
+      <div class="capabilities">
+        <article class="cap-row"><h3>Build the thing</h3><p>Full-stack product work, client websites, React Native, HTML/CSS/JS, and the ugly middle bit between idea and usable software.</p><div class="tags"><span class="tag">full-stack</span><span class="tag">web</span><span class="tag">MVPs</span></div></article>
+        <article class="cap-row"><h3>Break the thing carefully</h3><p>QA, testing, CTFs, security study, privacy instincts, and the useful habit of asking what fails first.</p><div class="tags"><span class="tag">QA</span><span class="tag">security</span><span class="tag">CTFs</span></div></article>
+        <article class="cap-row"><h3>Make the boring part disappear</h3><p>Automation, AI-assisted workflows, data exports, scripts, and internal tools that remove admin pain without pretending to be magic.</p><div class="tags"><span class="tag">automation</span><span class="tag">agents</span><span class="tag">data tools</span></div></article>
+        <article class="cap-row"><h3>Show up and build</h3><p>Hackathons, CTFs, team projects, public demos, and the useful chaos of building under time pressure.</p><div class="tags"><span class="tag">hackathons</span><span class="tag">CTFs</span><span class="tag">team builds</span></div></article>
+      </div>
+    </section>
+
+    <section id="experience" class="wrap reveal">
+      <div class="section-head">
+        <span class="label">02 / experience</span>
+        <div><h2>Receipts, not vibes.</h2><p>Public LinkedIn-visible work, internships, education, CTFs, and hackathons. A compact record of the things I have actually done, not a decorative logo wall.</p></div>
+      </div>
+      <div class="ledger">
+        <article class="ledger-row featured"><div class="ledger-mark"><img class="company-logo" src="assets/logos/rlly.png" alt="Rlly logo"><span>Rlly</span></div><div class="ledger-main"><h3>Rlly</h3><div class="ledger-role">Founding Full-Stack Engineer</div><p>Pre-seed AI startup building real-time tools for sales and service professionals. Core desktop application MVP, product engineering, and all the awkward glue around making software real.</p></div><div class="ledger-date">Nov 2025 — present<br>Contract · remote</div></article>
+        <article class="ledger-row"><div class="ledger-mark"><img class="company-logo" src="assets/logos/reset-health.png" alt="Reset Health logo"><span>Reset</span></div><div class="ledger-main"><h3>Reset Health</h3><div class="ledger-role">Software QA Engineer Intern</div><p>QA in a health-tech environment: independent testing, confidentiality, delivery ownership, and direct technical reporting.</p></div><div class="ledger-date">Jun — Sep 2025<br>Internship</div></article>
+        <article class="ledger-row"><div class="ledger-mark"><img class="company-logo wordmark" src="assets/logos/pat-mooney.svg" alt="Pat Mooney Counselling logo"><span>PMC</span></div><div class="ledger-main"><h3>Pat Mooney Counselling</h3><div class="ledger-role">Web Developer and Manager</div><p>Built and managed the site from the ground up. Long-running client work: design, maintenance, uptime, updates, troubleshooting, and client trust.</p></div><div class="ledger-date">May 2019 — Dec 2025<br>Part-time</div></article>
+        <article class="ledger-row"><div class="ledger-mark"><img class="company-logo" src="assets/logos/storyfutures.png" alt="StoryFutures logo"><span>Story</span></div><div class="ledger-main"><h3>StoryFutures</h3><div class="ledger-role">Video Editor Intern</div><p>Edited visual content for immersive storytelling and XR-related projects within the Royal Holloway / NFTS StoryFutures ecosystem.</p></div><div class="ledger-date">Aug — Sep 2024<br>Internship</div></article>
+        <article class="ledger-row"><div class="ledger-mark"><img class="company-logo" src="assets/logos/springpod.png" alt="Springpod logo"><span>Spring</span></div><div class="ledger-main"><h3>Springpod</h3><div class="ledger-role">Software Development Work Experience</div><p>Software development work experience covering career pathways, technical concepts, employer expectations, and industry interaction.</p></div><div class="ledger-date">Apr 2022<br>Programme</div></article>
+        <article class="ledger-row event"><div class="ledger-mark">RH8</div><div class="ledger-main"><h3>Royal Hackaway V8</h3><div class="ledger-role">Hackathon participant</div><p>Participated in Royal Holloway’s student-run hackathon scene: fast builds, team pressure, demos, and the useful chaos around student-made software.</p></div><div class="ledger-date">Hackathon<br>participant</div></article>
+      </div>
+    </section>
+
+    <section id="projects" class="wrap reveal">
+      <div class="section-head">
+        <span class="label">03 / selected work</span>
+        <div><h2>Stuff I’ve made.</h2><p>A few public-safe projects and experiments. Some polished, some scrappy, all more useful than pretending this is a venture-backed landing page.</p></div>
+      </div>
+      <div class="projects">
+        <article class="project">
+          <div class="project-meta"><span>shipped</span><span>JavaScript</span></div>
+          <div class="project-main"><h3>Instagram Analyser</h3><p>A client-side web application for analysing Instagram direct-message export data.</p><p class="why">Why it matters: your archive should become understandable without becoming someone else’s database.</p><div class="tags"><span class="tag">client-side</span><span class="tag">data analysis</span><span class="tag">privacy-aware</span></div></div>
+          <div class="project-side"><a class="mini-link" href="https://analysis.thelidlman.com" target="_blank" rel="noopener">Live site <span>↗</span></a><a class="mini-link" href="https://github.com/TheLidlMan/Instagram-Analyser" target="_blank" rel="noopener">Repository <span>↗</span></a></div>
+        </article>
+        <article class="project">
+          <div class="project-meta"><span>maintained</span><span>2019—now</span></div>
+          <div class="project-main"><h3>Pat Mooney Counselling website</h3><p>Long-running client website design, development, maintenance, uptime, updates, and troubleshooting.</p><p class="why">Why it matters: client work is not just design. It is translating needs, keeping things reliable, and fixing the boring parts before users notice.</p><div class="tags"><span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">JavaScript</span><span class="tag">client work</span></div></div>
+          <div class="project-side"><span class="mini-link">Public client work <span>✓</span></span></div>
+        </article>
+        <article class="project">
+          <div class="project-meta"><span>active orbit</span><span>AI</span></div>
+          <div class="project-main"><h3>AI agents and automation</h3><p>Work around AI-assisted workflows, small tools, and product-shaped experiments.</p><p class="why">The useful bit is not the company logo. It is making software handle awkward real-world processes without turning everything into a pitch deck.</p><div class="tags"><span class="tag">AI</span><span class="tag">automation</span><span class="tag">workflow tools</span></div></div>
+          <div class="project-side"><a class="mini-link" href="https://github.com/TheLidlMan" target="_blank" rel="noopener">Related public work <span>↗</span></a></div>
+        </article>
+        <article class="project">
+          <div class="project-meta"><span>experiments</span><span>Dart · TS · Python</span></div>
+          <div class="project-main"><h3>Plezy, Itinex, Lecture tools, and the public workshop</h3><p>A trail of current and older experiments across Flutter, TypeScript, Python, docs, infrastructure, media tooling, and university work.</p><p class="why">The through-line is simple: build small systems, learn in public, abandon what deserves abandoning, keep what works.</p><div class="tags"><span class="tag">Flutter</span><span class="tag">TypeScript</span><span class="tag">Python</span><span class="tag">experiments</span></div></div>
+          <div class="project-side"><a class="mini-link" href="https://github.com/TheLidlMan" target="_blank" rel="noopener">GitHub profile <span>↗</span></a></div>
+        </article>
+      </div>
+    </section>
+
+    <section id="proof" class="wrap reveal">
+      <div class="section-head">
+        <span class="label">04 / public proof</span>
+        <div><h2>Specific beats impressive-sounding.</h2><p>Everything here is intentionally public-safe and grounded in visible sources: LinkedIn, GitHub, and current project surfaces.</p></div>
+      </div>
+      <div class="proof">
+        <div class="proof-item"><span>Education</span><strong>Royal Holloway</strong><p>Computer Science / IT Security, 2023–2027 public LinkedIn window.</p></div>
+        <div class="proof-item"><span>GitHub</span><strong>@TheLidlMan</strong><p>Public repos across JavaScript, TypeScript, Python, Dart, docs, and experiments.</p></div>
+        <div class="proof-item"><span>Client work</span><strong>Since 2019</strong><p>Web Developer and Manager for Pat Mooney Counselling.</p></div>
+        <div class="proof-item"><span>CTFs</span><strong>Top 5% team</strong><p>Industrial Intrusion CTF hosted by TryHackMe, plus Snyk Fetch the Flag participation.</p></div>
+        <div class="proof-item"><span>Hackathons</span><strong>Royal Hackaway</strong><p>Participant in Royal Holloway’s student-run hackathon scene.</p></div>
+        <div class="proof-item"><span>Direction</span><strong>AI + systems</strong><p>Automation, web tools, infrastructure, local-first utilities, and security-shaped thinking.</p></div>
+      </div>
+    </section>
+
+    <section id="principles" class="wrap split reveal">
+      <div class="manifesto"><span class="label">05 / operating principles</span><h2>The website is not the work. It is the doorway.</h2><p>The point is to make the right people understand the shape of the work quickly: practical, slightly obsessive, allergic to fake polish, and interested in systems that survive reality.</p></div>
+      <div class="principles">
+        <div class="principle"><b>Make it inspectable.</b><span>If a system hides everything interesting, it is probably hiding something broken.</span></div>
+        <div class="principle"><b>Useful over theatrical.</b><span>Good software changes what someone can do. It does not just wear a shiny landing page hat.</span></div>
+        <div class="principle"><b>Privacy is a design constraint.</b><span>Especially with personal data exports, automation, and AI-assisted workflows.</span></div>
+        <div class="principle"><b>Keep the weirdness controlled.</b><span>Memorable is good. Tacky is a tax. The difference matters.</span></div>
+      </div>
+    </section>
+
+    <section class="contact wrap reveal">
+      <div class="contact-box">
+        <div><span class="label" style="color:#526000">06 / contact</span><h2>Send the interesting problem.</h2><p>If it involves web tools, automation, QA, security, events, data exports, or a small system nobody else wants to untangle, that is probably the right shape.</p></div>
+        <div class="contact-links"><a href="https://github.com/TheLidlMan" target="_blank" rel="noopener">GitHub <span>↗</span></a><a href="https://www.linkedin.com/in/sammatthews04/" target="_blank" rel="noopener">LinkedIn <span>↗</span></a><a href="https://analysis.thelidlman.com" target="_blank" rel="noopener">Instagram Analyser <span>↗</span></a></div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer wrap"><span>Static, fast, public-safe.</span><span>No fake metrics. No template cosplay.</span></footer>
+  <script>
+    const observer = new IntersectionObserver(entries => entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('in') }), { threshold: .12 });
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+  </script>
+</body>
 </html>
