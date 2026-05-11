@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630">
+  <rect width="1200" height="630" fill="#090a0a"/>
+  <path d="M0 120h1200M0 260h1200M0 400h1200M160 0v630M380 0v630M760 0v630M1040 0v630" stroke="#2a302d" stroke-opacity=".45"/>
+  <circle cx="880" cy="170" r="90" fill="none" stroke="#7fae8d" stroke-opacity=".45" stroke-width="2"/>
+  <circle cx="975" cy="330" r="34" fill="none" stroke="#c89b5a" stroke-opacity=".55" stroke-width="2"/>
+  <path d="M880 170L975 330L720 430L640 260Z" fill="none" stroke="#7fae8d" stroke-opacity=".32" stroke-width="2"/>
+  <text x="92" y="150" fill="#a7aea6" font-family="monospace" font-size="28">NODE 0 / PUBLIC INTERFACE</text>
+  <text x="88" y="292" fill="#e7e1d2" font-family="Georgia, serif" font-size="86">Sam Matthews</text>
+  <text x="92" y="374" fill="#7fae8d" font-family="monospace" font-size="30">Practical systems for messy real-world problems.</text>
+  <text x="92" y="452" fill="#a7aea6" font-family="Arial, sans-serif" font-size="28">Web tools · automation · infrastructure · data analysis</text>
+</svg>
